@@ -16,7 +16,7 @@ function App() {
   const [monsterData, setMonsterState] = useState({ monsters: [] });
   
   function getMonsters() {
-    fetch('/monsters')
+    fetch('https://monster-api-backend.herokuapp.com/monsters')
     .then(response => response.json())
     .then(json => setMonsterState({ monsters: json }))
     .catch(error => console.error(error));
@@ -25,7 +25,7 @@ function App() {
   function handleAdd(event, formInputs) {
     event.preventDefault()
     formInputs = JSON.stringify(formInputs);
-    fetch('/monsters', {
+    fetch('https://monster-api-backend.herokuapp.com/monsters', {
       body: formInputs,
       method: 'POST',
       headers: {
@@ -42,7 +42,7 @@ function App() {
 
   function handleUpdate(event, formInputs) {
     event.preventDefault();
-    fetch(`/monsters/${formInputs.id}`, {
+    fetch(`https://monster-api-backend.herokuapp.com/monsters/${formInputs.id}`, {
       body: JSON.stringify(formInputs),
       method: 'PUT',
       headers: {
