@@ -57,7 +57,7 @@ function App() {
   }
 
   function handleDelete(deletedMonster) {
-    fetch(`/monsters/${deletedMonster.id}`, {
+    fetch(`https://monster-api-backend.herokuapp.com/monsters/${deletedMonster.id}`, {
        method: 'DELETE',
        headers: {
          'Accept': 'application/json, text/plain, */*',
